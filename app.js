@@ -43,7 +43,7 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
     $scope.city = cityService.city;
 
     //checking routeParams - if no days passed, default to 2
-    $scope.days = $routeParams.days || 2;
+    $scope.days = $routeParams.days || '1'; //make 1 a string so ng-class in forecast works
 
     //go get data from my API
     $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=" + keys.api, {callback:"JSON_CALLBACK" }, {get: {method: "JSONP"}}) //JSON_CALLBACK and JSONP are so can
