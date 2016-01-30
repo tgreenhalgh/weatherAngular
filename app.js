@@ -21,8 +21,7 @@ weatherApp.service('cityService', function() {
 })
 
 //controllers
-weatherApp.controller('homeController',
-  ['$scope', 'cityService', function($scope, cityService) {
+weatherApp.controller('homeController', ['$scope', 'cityService', function($scope, cityService) {
 
     //set initial scope on the model
     $scope.city = cityService.city;
@@ -34,10 +33,17 @@ weatherApp.controller('homeController',
 
 }]);
 
-weatherApp.controller('forecastController',
-  ['$scope', 'cityService', function($scope, cityService) {
+weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService', function($scope, $resource, cityService) {
 
     //set initial scope on the model
     $scope.city = cityService.city;
+
+    //go get data from my API
+    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily?APPID="+ keys.api, {callback:"JSON_CALLBACK" }, {get: {method: "JSONP"}}) //JSON_CALLBACK and JSONP are so can
+    //download the API call (i.e. not a hack attempt)
+
+    $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: 2 })
+
+    console.log($scope.weatherResult);
 
 }]);
