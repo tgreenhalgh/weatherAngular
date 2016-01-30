@@ -39,7 +39,7 @@ weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService
     $scope.city = cityService.city;
 
     //go get data from my API
-    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily?APPID="+ keys.api, {callback:"JSON_CALLBACK" }, {get: {method: "JSONP"}}) //JSON_CALLBACK and JSONP are so can
+    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=" + keys.api, {callback:"JSON_CALLBACK" }, {get: {method: "JSONP"}}) //JSON_CALLBACK and JSONP are so can
     //download the API call (i.e. not a hack attempt)
 
     $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: 2 })
