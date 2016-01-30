@@ -5,11 +5,15 @@ Forecast for {{ city }}
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">{{ convertToDate(weather.dt) | date: "EEE, MM/dd/yy" }}</h3>
+          <h3 class="panel-title">{{ convertToDate(weather.dt) | date: "EEE, MM/dd/yy" }}
+          <!-- <br>Conditions {{ weather.weather[0].description }}</h3> -->
         </div>
         <div class="panel-body">
           Daytime temperature: {{ convertToFahrenheit(weather.temp.day) }}℉
         </div>
+        <!-- <div class="panel-body">
+          Daytime low/high: {{ convertToFahrenheit(weather.temp.min) }}℉ / {{ convertToFahrenheit(weather.temp.max) }}℉
+        </div>-->
       </div>
     </div>
   </div>
