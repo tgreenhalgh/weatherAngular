@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+  <!-- use the attributes set up in forecast.htm -->
+                            <!-- note weatherObj.dt is now in {} -->
+    <h3 class="panel-title">{{ convertToDate({ dt: weatherObj.dt }) | date: dateFormat }}
+    <!-- <br>Conditions {{ weather.weather[0].description }}</h3> -->
+  </div>
+  <div class="panel-body">   <!-- note weatherObj.temp.day is now in {} -->
+    Daytime temperature: {{ convertToStandard({ dayTimeTemp: weatherObj.temp.day }) }}℉
+  </div>
+  <!-- <div class="panel-body">
+    Daytime low/high: {{ convertToFahrenheit(weather.temp.min) }}℉ / {{ convertToFahrenheit(weather.temp.max) }}℉
+  </div>-->
+</div>

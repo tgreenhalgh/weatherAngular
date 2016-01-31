@@ -9,18 +9,8 @@ Days: <a href="#/forecast/1" ng-class="{'bg-primary': days === '1'}">1</a> | <a 
 <div ng-repeat="weather in weatherResult.list">
   <div class="row">
     <div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">{{ convertToDate(weather.dt) | date: "EEE, MM/dd/yy" }}
-          <!-- <br>Conditions {{ weather.weather[0].description }}</h3> -->
-        </div>
-        <div class="panel-body">
-          Daytime temperature: {{ convertToFahrenheit(weather.temp.day) }}℉
-        </div>
-        <!-- <div class="panel-body">
-          Daytime low/high: {{ convertToFahrenheit(weather.temp.min) }}℉ / {{ convertToFahrenheit(weather.temp.max) }}℉
-        </div>-->
-      </div>
+    <!-- set up attributes on the directive -->
+      <weather-report weather-obj="weather" convert-to-standard="convertToFahrenheit(dayTimeTemp)" convert-to-date="convertToDate(dt)" date-format="EEE, MM/dd/yy"></weather-report>
     </div>
   </div>
 </div>
